@@ -4,19 +4,27 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"  version="2.0">
       
       <persistence-unit name="crudHibernate" transaction-type="RESOURCE_LOCAL">
-        
+ <!--  
         <class>Pedido</class>
         <class>Item</class>
-
+-->
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bd_hibernate" />
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="" />
-
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+        	<!-- Declaração para o hibernate fazer o mapeamento automatico das classe que serão usadas como tabela -->
+        	<property name="hibernate.archive.autodetection" value="class" />
+        	
+        	<!-- Conexão com o banco de dados -->
+        	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/bd_hibernate" />
+            <property name="hibernate.connection.user" value="root" />
+            <property name="hibernate.connection.password" value="123456" />
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            
+            <!-- Configuração de Debug -->
             <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="use_sql_comments" value="true" />
+			
         </properties>
 
     </persistence-unit>

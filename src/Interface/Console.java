@@ -1,3 +1,4 @@
+package Interface;
 
 /**
    An easy interface to read numbers and strings from

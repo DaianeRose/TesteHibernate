@@ -1,19 +1,26 @@
+package Negocio;
 import java.util.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 @Entity
+@Table(name="pedido")
 public class Pedido{
-	@Id
+	
+	@Column
 	private Integer id;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "Pedido" )
+	
+	
 	private Collection cItem = new HashSet();
+	
 	@Column
 	private String descricao;
 
